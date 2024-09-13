@@ -14,6 +14,6 @@ public class LearningOrmApplication implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
         System.out.println("working from project ");
-        System.out.println("change 1 ");
+        System.out.println("change 2 ");
     }
 }
