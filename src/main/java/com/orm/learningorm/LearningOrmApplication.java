@@ -46,7 +46,7 @@ public class LearningOrmApplication implements CommandLineRunner {
 //        User upadtedUser=userService.updateUser(user,2);
 //        logger.info("User updated:{}",upadtedUser);
 
-        userService.deleteUser(1);
-        logger.info("user deleted");
+//        userService.deleteUser(1);
+//        logger.info("user deleted");
     }
 }
