@@ -39,15 +39,14 @@ pipeline {
         stage('Docker Build') {
             steps {
                 script {
-                    sh 'docker build -t pipeline:latest .'
-                    sh 'docker images .'
+                    sh 'docker build -t saurabh9695/kubernateslearning .'
                 }
             }
         }
         stage('Pushing to docker hub') {
             steps {
                 script {
-                    sh 'docker push saurabh9695/kubernateslearning .'
+                    sh 'docker push saurabh9695/kubernateslearning'
                     sh 'echo successfully pushed to docker hub'
                 }
             }
