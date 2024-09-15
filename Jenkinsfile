@@ -39,7 +39,14 @@ pipeline {
         stage('Docker Build') {
             steps {
                 script {
-                    sh 'docker build -t saurabh9695/kubernateslearning .'
+                    sh 'docker build -t pipeline .'
+                }
+            }
+        }
+        stage('Image Tag') {
+            steps {
+                script {
+                    sh 'docker tag pipeline saurabh9695/kubernateslearning'
                 }
             }
         }
@@ -50,14 +57,36 @@ pipeline {
                     sh 'echo successfully pushed to docker hub'
                 }
             }
-             post {
+        }
+        stage('Pulling to local') {
+            steps {
+                script {
+                    sh 'docker pull saurabh9695/kubernateslearning:latest'
+                }
+            }
+        }
+        stage('Pulling to local') {
+            steps {
+                script {
+                    sh 'docker pull saurabh9695/kubernateslearning:latest'
+                }
+            }
+        }
+        stage('Running Container') {
+            steps {
+                script {
+                    sh 'docker run --name pipelineContainer -it -d saurabh9695/kubernateslearning:latest'
+                }
+            }
+            post {
                     // If Maven was able to run the tests, even if some tests failed,
                     // record the test results and archive the jar file.
                     success {
                         junit '**/target/surefire-reports/TEST-*.xml'
                         archiveArtifacts artifacts: 'target/*.jar', allowEmptyArchive: true
                     }
-             }
+            }
         }
+
     }
 }
