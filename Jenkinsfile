@@ -43,6 +43,14 @@ pipeline {
                     sh 'docker images .'
                 }
             }
+        }
+        stage('Pushing to docker hub') {
+            steps {
+                script {
+                    sh 'docker push saurabh9695/kubernateslearning .'
+                    sh 'echo successfully pushed to docker hub'
+                }
+            }
              post {
                     // If Maven was able to run the tests, even if some tests failed,
                     // record the test results and archive the jar file.
@@ -50,8 +58,7 @@ pipeline {
                         junit '**/target/surefire-reports/TEST-*.xml'
                         archiveArtifacts artifacts: 'target/*.jar', allowEmptyArchive: true
                     }
-              }
-
+             }
         }
     }
 }
