@@ -65,13 +65,6 @@ pipeline {
                 }
             }
         }
-        stage('Pulling to local') {
-            steps {
-                script {
-                    sh 'docker pull saurabh9695/kubernateslearning:latest'
-                }
-            }
-        }
         stage('Running Container') {
             steps {
                 script {
