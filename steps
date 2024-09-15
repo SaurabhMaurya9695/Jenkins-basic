@@ -1,0 +1,3 @@
+1 : set jdk path 
+2 : for docker in local 
+https://stackoverflow.com/questions/51605685/docker-command-not-found-from-jenkins-on-macos
